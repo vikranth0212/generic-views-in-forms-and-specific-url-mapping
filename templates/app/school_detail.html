@@ -1,0 +1,55 @@
+{% extends 'app/dummy.html' %}
+
+{% block title %}
+    <title>School Detail</title>
+{% endblock %}
+
+{% block body_block %}
+    <center>
+        <h1>Detail Information of {{sclobject.sname}}</h1>
+
+        <h2>Name of the school is {{sclobject.sname}}</h2>
+        
+        <h2>Principal of the school is {{sclobject.sprincipal}}</h2>
+
+        
+        <h2>location of the school is {{sclobject.sloc}}</h2>
+
+<h1>Student Details Are</h1>
+
+<table border="3px">
+    <tr>
+        <th>Student Name</th>
+        <th>Student age</th>
+        <th>Student location</th>
+    </tr>
+
+    {% for st in sclobject.Students.all %}
+        <tr>
+            <td>{{st.studentname}}</td>
+            <td>{{st.sage}}</td>
+            <td>{{st.sloc}}</td>
+        </tr>
+    {% endfor %}
+
+
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+    </center>
+{% endblock %}
