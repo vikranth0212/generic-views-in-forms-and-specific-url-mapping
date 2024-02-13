@@ -1,0 +1,31 @@
+{% extends 'app/dummy.html' %}
+
+{% block title %}
+    <title>DeleteSchool</title>
+{% endblock %}
+
+{% block body_block %}
+    <center>
+        <h1>Are U Sure to delete {{sklobj.sname}}</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <input type="submit" value="Yes-Delete">
+        </form>
+
+        <a href="{% url 'Schoollist' %}" class="btn btn-warning">Take back to list</a>
+        <!-- this Schoollist is afunc in views -->
+        <a href="{% url 'schooldetail' pk=sklobj.pk %}" class="btn btn-warning">No take me back to detail</a>
+        <!-- sklobj is coming from schooldelete func -->
+
+
+
+
+
+
+
+
+   
+    </center>
+{% endblock %}

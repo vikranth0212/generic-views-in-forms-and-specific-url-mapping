@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from app.models import *
-from django.views.generic import View,TemplateView,ListView,DetailView,CreateView,UpdateView
+from django.views.generic import View,TemplateView,ListView,DetailView,CreateView,UpdateView,DeleteView
 # Create your views here.
+from django.urls import reverse_lazy
 
 class Schoollist(ListView):
     model=School
@@ -26,3 +27,11 @@ class SchoolCreate(CreateView):
 class SchoolUpdate(UpdateView):
     model=School
     fields='__all__'    
+
+#DeleteView is used for delete the existing data  or instance
+#reverse lazy is used to after completing the action it will send to particular url
+#success url is a inbulit variable
+class SchoolDelete(DeleteView):
+    model=School
+    context_object_name='sklobj'
+    success_url=reverse_lazy('Schoollist')
